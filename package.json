@@ -1,6 +1,6 @@
 {
     "name": "vite-plugin-vue-bevy-wasm",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Vite plugin to build bevy wasms",
     "author": "slyedoc <james.towles@gmail.com>",
     "license": "MIT",
@@ -25,7 +25,8 @@
     "scripts": {
         "dev": "npm run build -- --watch",
         "build": "tsup src/index.ts --dts --format cjs,esm",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run build",
+        "release": "bumpp --commit --tag --push"
     },
     "keywords": [
         "wasm-pack",
@@ -49,9 +50,11 @@
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",
         "@typescript-eslint/eslint-plugin": "^5.8.0",
+        "@typescript-eslint/parser": "^5.8.0",
         "eslint": "^8.5.0",
         "tsup": "^5.11.7",
         "typescript": "^4.5.4",
-        "vite": "^2.7.6"
+        "vite": "^2.7.6",
+        "bumpp": "^7.1.1"
     }
 }

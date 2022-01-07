@@ -1,4 +1,4 @@
-# Vite Plugin Rust Wasm
+# Vite Plugin Vue Rust Wasm
 
 My first vite plugin, so take that into account before using.
 
@@ -51,6 +51,3 @@ Requires [wasm-bindgen-cli](https://rustwasm.github.io/wasm-bindgen/reference/cl
 ```bash
 cargo install -f wasm-bindgen-cli
 ```
-
-> TODO: Feels bad having this step, though as you dive though wasm-bindgen stack
-involved

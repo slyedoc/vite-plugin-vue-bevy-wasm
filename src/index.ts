@@ -1,13 +1,11 @@
 import pc from "picocolors"
 import fs from 'fs-extra';
 import path from 'path';
-import chokidar from 'chokidar';
 import fg from 'fast-glob';
 //import mime from 'mime-types';
 import toml from 'toml';
 import child_process from 'child_process';
 import { Plugin, ResolvedConfig } from 'vite';
-import { useDebounceFn } from '@vueuse/core'
 
 interface Options {
 
@@ -95,7 +93,7 @@ declare module 'virtual:vue-bevy/${crate.name}.js' {
                     // called first time here on start
                     crateGenerate(crate);
 
-                    const deboundBuild = useDebounceFn(() => {
+                    const deboundBuild = debounceFn(() => {
                         crateGenerate(crate);
                     }, 5000);
                     // watch the crate and rebuild on change
@@ -266,7 +264,7 @@ meta:
                 // load the virtual module
                 crates.forEach(crate => {
                     if (id.indexOf(`/${crate.name}.js`) === 0) {
-                        const file = path.resolve( config.command === 'serve' ? options.out_dir : options.out_dir_dist, `${crate.name}.js`);                        
+                        const file = path.resolve( config.command === 'serve' ? options.out_dir : options.out_dir_dist, `${crate.name}.js`);
                         let source = fs.readFileSync(file, { encoding: 'utf-8' }).toString();
                         console.log("Serving file:", file, "\nServing source:", source);
                         return source;
@@ -291,3 +289,21 @@ meta:
         }
     };
 }
+
+
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// `wait` milliseconds.
+const debounceFn = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout;
+  
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };

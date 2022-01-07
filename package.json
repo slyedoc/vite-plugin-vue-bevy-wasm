@@ -1,27 +1,57 @@
 {
-  "name": "vite-plugin-vue-bevy-wasm",
-  "version": "0.1.0",
-  "description": "Vite plugin to build bevy wasms",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "wasm-pack",
-    "wasm-bindgen",
-    "vite-plugin",
-    "webassembly",
-    "wasm",
-    "rust",
-    "vite",
-    "cargo"
-  ],
-  "author": "slyedoc <james.towles@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "fast-glob": "^3.2.7",
-    "fs-extra": "^10.0.0",
-    "picocolors": "^1.0.0",
-    "toml": "^3.0.0"
-  }
+    "name": "vite-plugin-vue-bevy-wasm",
+    "version": "0.1.0",
+    "description": "Vite plugin to build bevy wasms",
+    "author": "slyedoc <james.towles@gmail.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/slyedoc/vite-plugin-vue-bevy-wasm",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/slyedoc/vite-plugin-vue-bevy-wasm"
+    },
+    "bugs": "https://github.com/slyedoc/vite-plugin-vue-bevy-wasm/issues",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        }
+    },
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "dev": "npm run build -- --watch",
+        "build": "tsup src/index.ts --dts --format cjs,esm",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "wasm-pack",
+        "wasm-bindgen",
+        "vite-plugin",
+        "webassembly",
+        "wasm",
+        "rust",
+        "vite",
+        "cargo"
+    ],
+    "peerDependencies": {
+        "vite": "^2.0.0"
+    },
+    "dependencies": {
+        "fast-glob": "^3.2.7",
+        "fs-extra": "^10.0.0",
+        "picocolors": "^1.0.0",
+        "toml": "^3.0.0"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
+        "@typescript-eslint/eslint-plugin": "^5.8.0",
+        "eslint": "^8.5.0",
+        "tsup": "^5.11.7",
+        "typescript": "^4.5.4",
+        "vite": "^2.7.6"
+    }
 }

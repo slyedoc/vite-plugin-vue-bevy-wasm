@@ -43,7 +43,6 @@ though 3 abstractions layers before anything useful happens because I don't care
 I found this after learning most of this the hard way [Work With Wasm-bindgen](https://www.reddit.com/r/rust/comments/kd22u5/wasmpack_dissectionhow_to_work_with_wasmbindgen/) for an overview.  I disagree on author on one point though, I don't care about npm functionality
 because we can just tell vite where the files.
 
-
 ## Setup
 
 Requires [wasm-bindgen-cli](https://rustwasm.github.io/wasm-bindgen/reference/cli.html)

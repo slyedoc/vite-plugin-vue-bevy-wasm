@@ -1,0 +1,27 @@
+{
+  "name": "vite-plugin-vue-bevy-wasm",
+  "version": "0.1.0",
+  "description": "Vite plugin to build bevy wasms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wasm-pack",
+    "wasm-bindgen",
+    "vite-plugin",
+    "webassembly",
+    "wasm",
+    "rust",
+    "vite",
+    "cargo"
+  ],
+  "author": "slyedoc <james.towles@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fast-glob": "^3.2.7",
+    "fs-extra": "^10.0.0",
+    "picocolors": "^1.0.0",
+    "toml": "^3.0.0"
+  }
+}

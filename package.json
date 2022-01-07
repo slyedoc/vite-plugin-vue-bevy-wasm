@@ -1,6 +1,6 @@
 {
     "name": "vite-plugin-vue-bevy-wasm",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Vite plugin to build bevy wasms",
     "author": "slyedoc <james.towles@gmail.com>",
     "license": "MIT",
@@ -23,7 +23,7 @@
         },
         "./client": {
             "types": "./client.d.ts"
-          }
+        }
     },
     "types": "./dist/index.d.ts",
     "scripts": {
